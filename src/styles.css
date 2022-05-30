@@ -27,5 +27,27 @@ button {
 }
 
 .player-component {
-  background-color: violet;
+  flex: 1;
+  margin: 50px;
+}
+
+.player-component__card-stack {
+  height: 620px;
+  position: relative;
+  background-color: grey;
+  border-radius: 20px;
+}
+
+.player-component__card,
+.player-component__back-card {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  object-fit: auto;
+}
+
+.game-state {
+  width: 20%;
 }

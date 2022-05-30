@@ -159,7 +159,15 @@ export default class WarGameComponent extends React.Component {
             currentCard={this.state.playerACurrentCard}
           />
 
-          <button onClick={this.clickHandler}>Click {button_text}</button>
+          <div className="gamestate">
+            <StatusComponent
+              currentWinner={this.state.currentWinner}
+              wasWar={this.state.currentWasWar}
+              cardsWon={this.state.currentCardsWon}
+              status={this.state.status}
+            />
+            <button onClick={this.clickHandler}>Click {button_text}</button>
+          </div>
 
           <PlayerComponent
             cardCount={
@@ -168,12 +176,6 @@ export default class WarGameComponent extends React.Component {
             currentCard={this.state.playerBCurrentCard}
           />
         </div>
-        <StatusComponent
-          currentWinner={this.state.currentWinner}
-          wasWar={this.state.currentWasWar}
-          cardsWon={this.state.currentCardsWon}
-          status={this.state.status}
-        />
       </div>
     );
   }
