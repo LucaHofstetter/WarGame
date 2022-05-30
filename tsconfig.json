@@ -10,5 +10,13 @@
             "es2015"
         ],
         "jsx": "react-jsx"
-    }
+    },
+    "presets": [
+        [
+            "@babel/preset-react",
+            {
+                "throwIfNamespace": false
+            }
+        ]
+    ]
 }

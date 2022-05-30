@@ -2,30 +2,30 @@ import React from "react";
 
 export class PlayerComponent extends React.Component {
   render() {
+    var backCard = "/public/images/cards/back.svg";
+    var svgFilename = "back.svg";
     function cardImagePath(key) {
-      var svgFilename = "back.svg";
       if (key) {
-        svgFilename = key.replace("_", "") + ".svg";
+        console.log(key);
+        svgFilename = key + ".svg";
       }
       return "/public/images/cards/" + svgFilename;
     }
     var cardCount = this.props.cardCount;
     var currentCard = this.props.currentCard;
-    var count = "";
-    if (cardCount) {
-      var c = cardCount === 1 ? "card" : "cards";
-      count = (
-        <p>
-          {cardCount} {c} remaining
-        </p>
-      );
-    }
+
     return (
-      <div>
-        <p>
-          <img width="100%" alt="" src={cardImagePath(currentCard)} />
-        </p>
-        {count}
+      <div className="player-component">
+        <div className="player-component__card-stack">
+          <img className="player-component__back-card" alt="" src={backCard} />
+          <img
+            className="player-component__card"
+            alt={svgFilename}
+            src={cardImagePath(currentCard)}
+          />
+        </div>
+
+        <div className="player-component__card-amount">{cardCount}</div>
       </div>
     );
   }

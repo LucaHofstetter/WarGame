@@ -1,4 +1,31 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+*,
+*::before,
+*::after {
+  box-sizing: none;
+  padding: 0;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#root {
+  background-color: #333;
+  color: #fff;
+  width: 100%;
+}
+#war_game_component {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 50px;
+  height: 100vh;
+}
+
+button {
+  padding: 10px 40px;
+  font-size: 18px;
+  margin: 15px;
+}
+
+.player-component {
+  background-color: violet;
 }

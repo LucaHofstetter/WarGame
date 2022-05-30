@@ -8,11 +8,11 @@ var GameStatus = {
   FINISHED: 1,
   INPROGRESS: 2
 };
-var Suits = ["H", "D", "C", "S"];
+var Suits = ["hearts", "diamonds", "clubs", "spades"];
 var Cards: any = [];
 for (var i = 2; i < 15; i++) {
   for (var j = 0; j < Suits.length; j++) {
-    Cards.push(i + "_" + Suits[j]);
+    Cards.push(i + "_of_" + Suits[j]);
   }
 }
 
@@ -79,6 +79,7 @@ export default class WarGameComponent extends React.Component {
     var complete = false;
     var nextStatus = GameStatus.INPROGRESS;
     var isWar = false;
+    console.log(this.state.playerADeck);
 
     // cycle until there isn't a match
     while (!complete) {
@@ -149,46 +150,30 @@ export default class WarGameComponent extends React.Component {
     var button_text = text_options[this.props.status];
 
     return (
-      <div id="war_game_component">
-        <table>
-          <tbody>
-            <tr>
-              <td width="33%" rowSpan="2" className="center-align">
-                <PlayerComponent
-                  cardCount={
-                    this.state.playerADeck
-                      ? this.state.playerADeck.length
-                      : null
-                  }
-                  currentCard={this.state.playerACurrentCard}
-                />
-              </td>
-              <td width="34%" height="50%" className="center-align">
-                <button onClick={this.clickHandler}>{button_text}</button>
-              </td>
-              <td width="33%" rowSpan="2" className="center-align">
-                <PlayerComponent
-                  cardCount={
-                    this.state.playerBDeck
-                      ? this.state.playerBDeck.length
-                      : null
-                  }
-                  currentCard={this.state.playerBCurrentCard}
-                />
-              </td>
-            </tr>
-            <tr>
-              <td className="center-align">
-                <StatusComponent
-                  currentWinner={this.state.currentWinner}
-                  wasWar={this.state.currentWasWar}
-                  cardsWon={this.state.currentCardsWon}
-                  status={this.state.status}
-                />
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div>
+        <div id="war_game_component">
+          <PlayerComponent
+            cardCount={
+              this.state.playerADeck ? this.state.playerADeck.length : null
+            }
+            currentCard={this.state.playerACurrentCard}
+          />
+
+          <button onClick={this.clickHandler}>Click {button_text}</button>
+
+          <PlayerComponent
+            cardCount={
+              this.state.playerBDeck ? this.state.playerBDeck.length : null
+            }
+            currentCard={this.state.playerBCurrentCard}
+          />
+        </div>
+        <StatusComponent
+          currentWinner={this.state.currentWinner}
+          wasWar={this.state.currentWasWar}
+          cardsWon={this.state.currentCardsWon}
+          status={this.state.status}
+        />
       </div>
     );
   }

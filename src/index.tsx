@@ -1,5 +1,6 @@
 import React from "react";
 import * as ReactDOMClient from "react-dom/client";
+import "./styles.css";
 
 import WarGameComponent from "./WarGameComponent";
 
