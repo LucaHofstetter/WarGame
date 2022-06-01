@@ -147,33 +147,34 @@ export default class WarGameComponent extends React.Component {
   };
   render() {
     var text_options = ["Start Game", "Play Again", "Next Round"];
-    var button_text = text_options[this.props.status];
+    var button_text = text_options[this.state.status];
 
     return (
       <div>
         <div id="war_game_component">
           <PlayerComponent
             cardCount={
-              this.state.playerADeck ? this.state.playerADeck.length : null
+              this.state.playerADeck ? this.state.playerADeck.length : 26
             }
             currentCard={this.state.playerACurrentCard}
+            player="Player A"
           />
 
-          <div className="gamestate">
-            <StatusComponent
-              currentWinner={this.state.currentWinner}
-              wasWar={this.state.currentWasWar}
-              cardsWon={this.state.currentCardsWon}
-              status={this.state.status}
-            />
-            <button onClick={this.clickHandler}>Click {button_text}</button>
-          </div>
+          <StatusComponent
+            currentWinner={this.state.currentWinner}
+            wasWar={this.state.currentWasWar}
+            cardsWon={this.state.currentCardsWon}
+            status={this.state.status}
+          />
+
+          <button onClick={this.clickHandler}>{button_text}</button>
 
           <PlayerComponent
             cardCount={
-              this.state.playerBDeck ? this.state.playerBDeck.length : null
+              this.state.playerBDeck ? this.state.playerBDeck.length : 26
             }
             currentCard={this.state.playerBCurrentCard}
+            player="Player B"
           />
         </div>
       </div>

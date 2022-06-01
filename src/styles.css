@@ -6,6 +6,11 @@
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+:root {
+  --lightblue: #58ffee;
+  --lightgreen: #55e58e;
+  --lightred: #ff5d5d;
+}
 
 #root {
   background-color: #333;
@@ -16,36 +21,108 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 50px;
+  padding: 0 50px;
   height: 100vh;
 }
 
 button {
-  padding: 10px 40px;
+  padding: 14px 19px;
   font-size: 18px;
   margin: 15px;
+  background-color: var(--lightblue);
+  border: none;
+  border-radius: 13px;
+  font-weight: 600;
+}
+
+button::before {
+  transform: translateY(-480px) rotate(180deg);
+}
+
+button::after {
+  transform: translateY(70px);
+}
+
+button::after,
+button::before {
+  border: 1px solid white;
+  height: 40vh;
+  left: calc(50% - 1px);
+  content: "";
+  position: absolute;
 }
 
 .player-component {
-  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  margin: 50px;
+  flex-direction: column;
+}
+
+.player-component__player-info {
+  display: flex;
+  align-items: center;
+}
+
+.player-component__title {
+  font-size: 32px;
+  line-height: 43px;
+  margin-bottom: 100px;
+}
+
+.player-component__card-amount {
+  font-size: 59px;
+  font-weight: bold;
   margin: 50px;
 }
 
 .player-component__card-stack {
-  height: 620px;
+  height: 458px;
+  width: 288px;
   position: relative;
-  background-color: grey;
-  border-radius: 20px;
+  background-color: white;
+  color: black;
 }
 
-.player-component__card,
-.player-component__back-card {
+[data-player="Player A"] .player-component__player-info {
+  flex-direction: row;
+}
+
+[data-player="Player B"] .player-component__player-info {
+  flex-direction: row-reverse;
+}
+
+[data-player="Player A"] .player-component__card {
+  transform: rotate(-20deg);
+}
+[data-player="Player A"] .player-component__title,
+[data-player="Player A"] .player-component__card-amount {
+  text-align: right;
+  color: var(--lightgreen);
+}
+
+[data-player="Player B"] .player-component__card {
+  transform: rotate(20deg);
+}
+
+[data-player="Player B"] .player-component__title,
+[data-player="Player B"] .player-component__card-amount {
+  text-align: left;
+  color: var(--lightred);
+}
+
+.player-component__card-stack img {
+  border-radius: 20px;
   height: 100%;
   width: 100%;
   position: absolute;
   left: 0;
   top: 0;
   object-fit: auto;
+}
+
+.player-component__card {
+  background-color: grey;
 }
 
 .game-state {
