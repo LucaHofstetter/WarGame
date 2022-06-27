@@ -22,6 +22,6 @@ export class StatusComponent extends React.Component {
       }
       text += "Player " + winner + " won " + spoils + " cards.";
     }
-    return <div>{text}</div>;
+    return <div className="game-status">{text}</div>;
   }
 }

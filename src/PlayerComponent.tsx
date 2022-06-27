@@ -1,5 +1,4 @@
 import React from "react";
-import back from "/public/images/cards/back.svg";
 export class PlayerComponent extends React.Component {
   render() {
     var svgFilename = "";
@@ -7,8 +6,8 @@ export class PlayerComponent extends React.Component {
       if (key) {
         svgFilename = key + ".svg";
       }
-      console.log("/public/images/cards/" + svgFilename);
-      return "/public/images/cards/" + svgFilename;
+      console.log("/images/cards/" + svgFilename);
+      return "/images/cards/" + svgFilename;
     }
 
     var cardCount = this.props.cardCount;
@@ -21,7 +20,11 @@ export class PlayerComponent extends React.Component {
 
         <div className="player-component__player-info">
           <div className="player-component__card-stack">
-            <img className="player-component__back-card" alt="" src={back} />
+            <img
+              className="player-component__back-card"
+              alt=""
+              src={"/images/cards/back.jpg"}
+            />
             <img
               className="player-component__card"
               alt={svgFilename}
