@@ -6,7 +6,6 @@ export class PlayerComponent extends React.Component {
       if (key) {
         svgFilename = key + ".svg";
       }
-      console.log("/images/cards/" + svgFilename);
       return "/images/cards/" + svgFilename;
     }
 

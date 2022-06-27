@@ -33,6 +33,7 @@ button {
   border: none;
   border-radius: 13px;
   font-weight: 600;
+  cursor: pointer;
 }
 
 button::before {
@@ -119,9 +120,52 @@ button::before {
   object-fit: auto;
 }
 
-.player-component__card {
+/*.game-status.win .game-status__message {
+  position: absolute;
+  background-color: #33333396;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+  color: #8d38fc;
 }
 
-.game-state {
-  width: 20%;
+.game-status {
+  position: absolute;
+  background-color: #33333396;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
 }
+
+@keyframes popup {
+  from {
+    display: block;
+  }
+  to {
+    display: none;
+  }
+}
+
+.game-status.noStart {
+  display: block;
+  animation: popup 0.5s 5s ease forwards;
+}
+
+.game-status.war .game-status__message {
+  color: #effc38;
+  animation: popup 0.5s 5s ease forwards;
+}
+
+.game-status.end .game-status__message {
+  color: #58ffee;
+  animation: popup 0.5s 5s ease forwards;
+}
+
+.game-status__message {
+  font-size: 5rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}*/
